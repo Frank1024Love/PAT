@@ -4,6 +4,8 @@ struct Student{
   char id[11];
   int score;
 }student[1001],max,min;
+
+
 int main()
 {
 	int n;
