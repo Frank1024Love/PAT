@@ -5,7 +5,7 @@
 	 }student[1001];
 int main()
 {
-            //二维数组实现 
+            二维数组实现 
 //  int m,n;
 //  int flag=1;
 //  long long a[1001][3]={0};
