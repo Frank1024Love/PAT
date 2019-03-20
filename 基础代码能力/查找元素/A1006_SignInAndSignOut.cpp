@@ -3,28 +3,28 @@
 using namespace std; 
 int main()
 {
-   int n,min=INT_MAX,max=INT_MIN;
-   scanf("%d",&n);
-   string firstpid,lastpid;
-   for(int i=0;i<n;i++)
-   {
-   	string pid;
-   	cin>>pid;
-   	int h1,m1,s1,h2,m2,s2;
-   	scanf("%d:%d:%d %d:%d:%d", &h1, &m1, &s1, &h2, &m2, &s2);
-   	int signin=h1*3600+m1*60+s1;//日期相加进行比较 
-   	int signout=h2*3600+m2*60+s2;
-   	if(signin<min){
-   		min=signin;
-   		firstpid=pid;
-	   } 
-	   if(signout>max)
-	   {
-	   	max=signout;
-	   	lastpid=pid;
-	   }
-   }
-   cout<<firstpid<<" "<<lastpid;
+     string first,last,id;
+     int max=INT_MIN,min=INT_MAX,n;//初始化最大最小值很重要 ，一般最大值尽可能小，最小值尽可能大 
+	 int h1,h2,m1,m2,s1,s2;
+	 int t1=0,t2=0;
+	 cin>>n;
+	 while(n--)
+	 {
+	 	cin>>id;
+	 	scanf("%d:%d:%d %d:%d:%d",&h1,&m1,&s1,&h2,&m2,&s2);
+	 	t1=h1*3600+m1*600+s1;
+	 	t2=h2*3600+m2*600+s2;
+	 	if(t1<min){
+	 		min=t1;
+	 		first=id;
+		 }
+		 if(t2>max)
+		 {
+		 	max=t2;
+		 	last=id;
+		 }
+	 }
+	 cout<<first<<" "<<last;  
   return 0;
 }
 

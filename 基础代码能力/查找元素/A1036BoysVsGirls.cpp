@@ -2,33 +2,34 @@
 using namespace std;
 int main()
 {
-	int n,max=-1,min=101;
+  int n,min=101,max=-1;//初始量的选择，最小值赋值最大的量，最大值赋值最小的量，方便后续的操作 
+	string name,gender,id;//使用string类型更加方便 
 	string Female,Male;
+	int score;
 	cin>>n;
 	while(n--)
 	{
-	  string name,id,gender;
-	  int score;
-	  cin>>name>>gender>>id;
-	  scanf("%d",&score);
-	  if(gender=="M"){
-	    if(min>score){
-	      min=score;
-	      Male=name+" "+id;
-	    }
-	  }else if(gender=="F")
-	  {
-	    if(max<score){
-	    max=score;
-	    Female=name+" "+id;
-	  }
-	  }
-	}
-	if(max!=-1) cout<<Female<<endl;
-	else printf("Absent\n");
-	if(min!=101) cout<<Male<<endl;
-	else printf("Absent\n");
-	if(max!=-1&&min!=101) printf("%d",max-min);//max min 的值搞反了
-	else printf("NA");
+		cin>>name>>gender>>id>>score;
+		if(gender=="F"){
+			if(score>max)
+			{
+				max=score;
+				Female=name+" "+id;
+			}
+		}else if(gender=="M")
+		{
+			if(score<min)
+			{
+				min=score;
+				Male=name+" "+id;
+			}
+		}
+	 } 
+	 if(max!=-1) cout<<Female<<endl;
+	 else cout<<"Absent"<<endl;
+	 if(min!=101)cout<<Male<<endl;
+	 else cout<<"Absent"<<endl;
+	 if(max!=-1&&min!=101)cout<<max-min;
+	 else cout<<"NA";
 	return 0;
 }
