@@ -5,7 +5,7 @@
 using namespace std;
 int n,k,m;
 struct node{
-	int id,sum=0,fullmark=0,flag=0;//
+	int id,sum=0,fullmark=0,flag=0;
 	vector<int> scores;
 	int rank;
 };
@@ -33,28 +33,15 @@ int main(){
 		cin>>id>>pnum>>score;
 		v[id].id=id;
 		v[id].scores[pnum]=max(v[id].scores[pnum],score);
-		if(score!=-1) v[id].flag=1;
-		else if(v[id].scores[pnum]==-1) v[id].scores[pnum]=-2; 
-//		v[id].flag=1;
-//		if(score==0||score==-1){
-//		if(v[id].scores[pnum]==-1||v[id].scores[pnum]==0){//未访问或者得分为零的时候才能覆盖！！ 
-//			v[id].scores[pnum]=0;
-//		}	
-//		}else{
-//			if(score==fullscore[pnum]){// 记录得满分的题数 
-//			v[id].fullmark++;
-//		    }
-//			v[id].sum-=v[id].scores[pnum];
-//			v[id].scores[pnum]=max(v[id].scores[pnum],score); //更新题目较大的分数 
-//			v[id].sum+=v[id].scores[pnum];
-//			cout<<v[id].sum<<endl; 
-//		}  
+		if(score!=-1) v[id].flag=1;//有编译通过的情况就记为有效 
+		else if(v[id].scores[pnum]==-1) v[id].scores[pnum]=-2; //未通过编译记为-2 
 	}
+	
 	for(int i=1;i<=n;i++){
 		for(int j=1;j<=k;j++){
 			if(v[i].scores[j]!=-1&&v[i].scores[j]!=-2){
 				v[i].sum+=v[i].scores[j];
-			}if(v[i].scores[j]==fullscore[j]){
+			}if(v[i].scores[j]==fullscore[j]){ 
 				v[i].fullmark++;
 			}
 		}
@@ -69,15 +56,15 @@ int main(){
 	}
 	for(int i=0;i<v.size();i++)//输出结果 
 	{
-		if(v[i].flag==1){
+		if(v[i].flag==1){//被访问过就输出 
 			printf("%d %05d %d",v[i].rank,v[i].id,v[i].sum);
 			for(int j=1;j<=k;j++){
-				if(v[i].scores[j]!=-1&&v[i].scores[j]!=-2)//得分为-1 或 0 
+				if(v[i].scores[j]!=-1&&v[i].scores[j]!=-2) 
 				{
 					cout<<" "<<v[i].scores[j];
 				}else if(v[i].scores[j]==-1){//未被访问的题目 
 					cout<<" -";
-				}else{
+				}else{//得分为0的题目 
 				   cout<<" 0";
 				}
 			} 
