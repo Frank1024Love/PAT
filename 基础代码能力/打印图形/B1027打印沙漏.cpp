@@ -6,7 +6,7 @@ int main()
 	int n;
 	char c;
 	cin>>n>>c;
-	int top=(int)sqrt(2.0*(n+1))-1;//需要知道第一行的值是多少 向下取整 
+	int top=(int)sqrt(2.0*(n+1))-1;//需要知道第一行的值是多少 向下取整        
 	if(top%2==0)top--;             //要求是奇数 
 	int used=(top+1)*(top+1)/2-1;   //输出的全部字符数
 	

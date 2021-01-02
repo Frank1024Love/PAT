@@ -6,7 +6,7 @@ int main()
 	double produce=1.0;
 	for(int i=0;i<3;i++)
 	{
-		double maxprice=-1;//´Ë´¦ÐèÒª¸³Öµ£¡£¡£¡£¡£¡£¡ 
+		double maxprice=-1;//ï¿½Ë´ï¿½ï¿½ï¿½Òªï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		int maxchar=-1;
 		for(int j=0;j<3;j++)
 		{
